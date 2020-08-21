@@ -13,17 +13,6 @@ const mapStateToProps = (state) => ({
   state,
 });
 
-const styles = (theme) => ({
-  root: {
-    width: "100%",
-    marginTop: theme.spacing(1) * 3,
-    overflowX: "auto",
-  },
-  table: {
-    minWidth: 700,
-  },
-});
-
 class FederalGender extends Component {
   constructor() {
     super();
@@ -55,7 +44,6 @@ class FederalGender extends Component {
   }
 
   render() {
-  //  const { classes } = this.props.Table;
     return (
       <section className="gender">
         <h4>Demographics: Gender Identity</h4>

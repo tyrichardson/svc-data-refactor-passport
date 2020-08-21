@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { List, ListItem, Typography } from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { List, ListItem, Typography } from "@material-ui/core";
+import Divider from "@material-ui/core/Divider";
 
 class AdminToolsNav extends Component {
   render() {
@@ -10,9 +10,9 @@ class AdminToolsNav extends Component {
         <Divider />
         <br />
         <List>
-          <Typography variant="title" className="navTitle">
+          <Typography variant="h6" className="navTitle">
             Admin Entry Tools
-            </Typography>
+          </Typography>
           <ListItem button>
             <Link to="/user_entry_page" className="navButton">
               User Entry
@@ -25,9 +25,8 @@ class AdminToolsNav extends Component {
           </ListItem>
         </List>
       </div>
-    )
+    );
   }
-};
-
+}
 
 export default AdminToolsNav;

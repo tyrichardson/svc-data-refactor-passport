@@ -162,7 +162,7 @@ class CountyDate extends Component {
             <div>
               <Button
                 name="submit"
-                variant="flat"
+                variant="text"
                 color="primary"
                 onClick={this.submit}
               >
@@ -170,7 +170,7 @@ class CountyDate extends Component {
               </Button>
               <Button
                 name="submit"
-                variant="flat"
+                variant="text"
                 color="primary"
                 onClick={this.print}
               >

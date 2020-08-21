@@ -13,17 +13,6 @@ const mapStateToProps = (state) => ({
   state,
 });
 
-const styles = (theme) => ({
-  root: {
-    width: "100%",
-    marginTop: theme.spacing(1) * 3,
-    overflowX: "auto",
-  },
-  table: {
-    minWidth: 700,
-  },
-});
-
 class AgeRange extends Component {
   constructor() {
     super();
@@ -55,7 +44,6 @@ class AgeRange extends Component {
   }
 
   render() {
-    const { classes } = this.props;
     return (
       <section className="Age">
         <h4>Demographics: Age</h4>

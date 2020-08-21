@@ -204,7 +204,7 @@ class UserEntryPage extends Component {
               direction="row"
               justify="flex-start"
               alignItems="center"
-              spacing={40}
+              spacing={3}
             >
               <Grid item xs={3} sm={3}></Grid>
               <Grid item xs={8} sm={8}>
@@ -255,7 +255,7 @@ class UserEntryPage extends Component {
                     <div style={{ float: "right", marginRight: "12px" }}>
                       <Button
                         name="submit"
-                        variant="flat"
+                        variant="text"
                         color="primary"
                         onClick={this.registerUser}
                       >

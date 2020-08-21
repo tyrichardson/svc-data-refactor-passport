@@ -83,7 +83,7 @@ class YellowForm extends Component {
             direction="row"
             justify="space-around"
             alignItems="center"
-            spacing={40}
+            spacing={3}
           >
             <Grid item xs={6} sm={3} md={3}></Grid>
             <Grid item xs={6} sm={8} md={8}>

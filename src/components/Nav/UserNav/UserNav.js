@@ -91,7 +91,7 @@ class UserNav extends Component {
           <br />
           <br />
           <List>
-            <Typography variant="title" className="navTitle">
+            <Typography variant="h6" className="navTitle">
               Forms
             </Typography>
             <ListItem button>

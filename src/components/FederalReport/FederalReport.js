@@ -120,7 +120,7 @@ class FederalReport extends Component {
             direction="row"
             justify="flex-start"
             alignItems="center"
-            spacing={40}
+            spacing={3}
           >
             <Grid item xs={3} sm={3}></Grid>
             <Grid item xs={8} sm={8}>

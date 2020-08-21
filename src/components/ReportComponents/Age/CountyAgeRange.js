@@ -45,7 +45,7 @@ class CountyAgeRange extends Component{
         window.print();
     }
 
-    componenTableCellidMount () {
+    componentDidMount () {
         
         this.props.dispatch({type: 'FETCH_USER'});
         console.log(this.props.state.getCountyReducer)

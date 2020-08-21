@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { List, ListItem, Typography } from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { List, ListItem, Typography } from "@material-ui/core";
+import Divider from "@material-ui/core/Divider";
 
 class AdminDataEntryNav extends Component {
   render() {
@@ -10,23 +10,23 @@ class AdminDataEntryNav extends Component {
         <List>
           <Divider />
           <br />
-          <Typography variant="title" className="navTitle">
+          <Typography variant="h6" className="navTitle">
             Data Entry
-                  </Typography>
+          </Typography>
           <ListItem button>
             <Link to="/telephone" className="navButton">
               Telephone
-                    </Link>
+            </Link>
           </ListItem>
           <ListItem button>
             <Link to="/in-person" className="navButton">
               In-Person
-                    </Link>
+            </Link>
           </ListItem>
         </List>
       </div>
-    )
+    );
   }
-};
+}
 
 export default AdminDataEntryNav;

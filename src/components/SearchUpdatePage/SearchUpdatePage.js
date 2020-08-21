@@ -119,7 +119,6 @@ class SearchUpdatePage extends Component {
               <div>
                 <Card className={classes.titleCard}>
                   <Typography
-                    Typography
                     variant="h4"
                     style={{ textAlign: "center", color: grey[50] }}
                   >

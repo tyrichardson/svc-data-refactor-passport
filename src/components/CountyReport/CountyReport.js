@@ -116,9 +116,9 @@ class CountyReport extends Component {
             direction="row"
             justify="flex-start"
             alignItems="center"
-            spacing={40}
+            spacing={3}
           >
-            <Grid item item xs={3} sm={3}></Grid>
+            <Grid item xs={3} sm={3}></Grid>
             <Grid item xs={8} sm={8}>
               <Paper style={style.paper}>
                 <Card style={{ margin: "10px" }}>

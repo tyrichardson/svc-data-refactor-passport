@@ -10,6 +10,7 @@ function* postNewVictim(action) {
             if (payload[key] === "") {
                 payload[key] = null;
             }
+            return null;
         })
         let createNewVictim = yield call(axios.post, '/api/victim', payload);
         yield put({

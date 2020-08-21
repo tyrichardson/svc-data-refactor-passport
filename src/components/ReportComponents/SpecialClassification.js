@@ -13,17 +13,6 @@ const mapStateToProps = (state) => ({
   state,
 });
 
-const styles = (theme) => ({
-  root: {
-    width: "100%",
-    marginTop: theme.spacing(1) * 3,
-    overflowX: "auto",
-  },
-  table: {
-    minWidth: 700,
-  },
-});
-
 class SpecialClassification extends Component {
   constructor() {
     super();
@@ -55,7 +44,6 @@ class SpecialClassification extends Component {
   }
 
   render() {
-    const { classes } = this.props;
     return (
       <section className="total">
         <h4>Types of Victimization: Special classification of individuals</h4>

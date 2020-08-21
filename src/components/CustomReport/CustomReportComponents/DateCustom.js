@@ -113,7 +113,7 @@ class DateCustom extends Component {
             </div>
             <Button
               name="submit"
-              variant="flat"
+              variant="text"
               color="primary"
               onClick={this.props.submitCustomReport}
             >

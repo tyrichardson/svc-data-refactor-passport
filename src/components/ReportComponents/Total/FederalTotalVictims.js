@@ -46,9 +46,6 @@ class TotalVictims extends Component {
     }
 
     render() {
-
-        const { classes } = this.props;
-
         return (
             <div className="dropdown">
             <section className="total">

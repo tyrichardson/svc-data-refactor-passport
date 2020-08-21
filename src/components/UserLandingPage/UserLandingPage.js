@@ -31,7 +31,7 @@ class UserLandingPage extends Component {
             direction="row"
             justify="space-around"
             alignItems="center"
-            spacing={40}
+            spacing={3}
           >
             <Grid item sm={2}></Grid>
             <Grid item xs={12} sm={8}>

@@ -49,7 +49,7 @@ class CalendarModal extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <Typography variant="title" id="modal-dates required">
+            <Typography variant="h6" id="modal-dates required">
               Please Enter Start and End Dates.
             </Typography>
             <Typography variant="subheading" id="simple-modal-description">
