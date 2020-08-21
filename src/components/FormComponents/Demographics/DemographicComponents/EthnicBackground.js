@@ -1,32 +1,39 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { MenuItem, InputLabel, Select, FormControl, Divider, TextField } from '@material-ui/core';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import {
+  MenuItem,
+  InputLabel,
+  Select,
+  FormControl,
+  Divider,
+  TextField,
+} from "@material-ui/core";
 
-const styles = theme => ({
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: 200,
-    },
-    root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    formControl: {
-        margin: theme.spacing.unit,
-        minWidth: 200,
-    },
+const styles = (theme) => ({
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
+  root: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 200,
+  },
 });
 
-const mapStateToProps = state => ({
-    state
+const mapStateToProps = (state) => ({
+  state,
 });
 
 const initialState = {
   victim_ethnicity: "",
-  victim_ethnicity_other_specify: ""
+  victim_ethnicity_other_specify: "",
 };
 
 class EthnicBackground extends Component {
@@ -38,7 +45,7 @@ class EthnicBackground extends Component {
   static getDerivedStateFromProps = (props, state) => {
     if (props.dispatchTo === "UPDATE_THE_FORM") {
       const { updateFormReducer } = props.state;
-      Object.keys(updateFormReducer).forEach(key => {
+      Object.keys(updateFormReducer).forEach((key) => {
         if (updateFormReducer[key] === null) {
           updateFormReducer[key] = undefined;
         }
@@ -52,17 +59,17 @@ class EthnicBackground extends Component {
     }
   };
 
-  handleChangeFor = event => {
+  handleChangeFor = (event) => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
     this.props.dispatch({
       type: this.props.dispatchTo,
-      payload: { ...this.state, [name]: value }
+      payload: { ...this.state, [name]: value },
     });
   };
 
@@ -80,7 +87,7 @@ class EthnicBackground extends Component {
             autoWidth
             inputProps={{
               name: "victim_ethnicity",
-              id: "victim_ethnicity"
+              id: "victim_ethnicity",
             }}
           >
             <MenuItem style={{ width: "100%" }} value="Asian">
@@ -141,7 +148,7 @@ class EthnicBackground extends Component {
 }
 
 EthnicBackground.propTypes = {
-    classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(EthnicBackground));

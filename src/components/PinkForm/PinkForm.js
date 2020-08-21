@@ -1,54 +1,54 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import TelephoneContactInfo from '../FormComponents/ContactInfo/TelephoneContactInfo';
-import PhoneServices from '../FormComponents/PhoneServices/PhoneServices';
-import Support from '../FormComponents/Support/Support';
-import UnmetNeeds from '../FormComponents/UnmetNeeds/UnmetNeeds';
-import Referrals from '../FormComponents/Referrals/Referrals';
-import Demographics from '../FormComponents/Demographics/Demographics';
-import UserNav from '../Nav/UserNav/UserNav';
-import AdminNav from '../Nav/AdminNav/AdminNav';
+import TelephoneContactInfo from "../FormComponents/ContactInfo/TelephoneContactInfo";
+import PhoneServices from "../FormComponents/PhoneServices/PhoneServices";
+import Support from "../FormComponents/Support/Support";
+import UnmetNeeds from "../FormComponents/UnmetNeeds/UnmetNeeds";
+import Referrals from "../FormComponents/Referrals/Referrals";
+import Demographics from "../FormComponents/Demographics/Demographics";
+import UserNav from "../Nav/UserNav/UserNav";
+import AdminNav from "../Nav/AdminNav/AdminNav";
 
-import SubmitDialog from '../FormComponents/SubmitDialog/SubmitDialog';
+import SubmitDialog from "../FormComponents/SubmitDialog/SubmitDialog";
 
-import { Paper, Typography, Card, Grid } from '@material-ui/core';
+import { Paper, Typography, Card, Grid } from "@material-ui/core";
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
-  state
-})
+  state,
+});
 
 const style = {
   title: {
-    backgroundColor: '#F8BBD0',
-    textAlign: 'center',
-    color: '#424242',
-    padding: '10px',
+    backgroundColor: "#F8BBD0",
+    textAlign: "center",
+    color: "#424242",
+    padding: "10px",
   },
   paper: {
-    backgroundColor: '#FCE4EC',
-    padding: '10px'
-  }
-}
+    backgroundColor: "#FCE4EC",
+    padding: "10px",
+  },
+};
 
 class PinkForm extends Component {
   constructor() {
     super();
     this.state = {
-      contact_type: "telephone"
+      contact_type: "telephone",
     };
   }
   handleSubmit = () => {
     console.log(this.props.state.EntryFormReducer);
     this.props.dispatch({
       type: "ADD_NEW_VICTIM",
-      payload: { ...this.state, ...this.props.state.EntryFormReducer }
+      payload: { ...this.state, ...this.props.state.EntryFormReducer },
     });
   };
 
   componentDidMount() {
-    this.props.dispatch({ type: 'FETCH_USER' });
+    this.props.dispatch({ type: "FETCH_USER" });
   }
 
   renderDemographics = () => {
@@ -57,9 +57,11 @@ class PinkForm extends Component {
       EntryFormReducer.victim_prior_contact === false ||
       EntryFormReducer.victim_contact_prior_oct === false
     ) {
-      return <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+      return (
+        <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <Demographics dispatchTo={"ENTRY_FORM_DATA"} />
-        </Grid>;
+        </Grid>
+      );
     }
     return null;
   };
@@ -86,7 +88,7 @@ class PinkForm extends Component {
             <Grid item xs={6} sm={8} md={8}>
               <Paper style={style.paper}>
                 <Card style={{ margin: "10px" }}>
-                  <Typography variant="display1" style={style.title}>
+                  <Typography variant="h4" style={style.title}>
                     Telephone Contact Form for Primary AND Secondary Victims
                   </Typography>
                 </Card>

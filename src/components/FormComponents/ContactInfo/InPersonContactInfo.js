@@ -1,51 +1,51 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { Card, Grid, Typography } from '@material-ui/core';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import { Card, Grid, Typography } from "@material-ui/core";
 
-import AdvocateName from './ContactComponents/AdvocateName';
-import CurrentDate from './ContactComponents/CurrentDate';
-import StartTime from './ContactComponents/StartTime';
-import EndTime from './ContactComponents/EndTime';
-import ContactDate from './ContactComponents/ContactDate';
-import ServiceLocation from './ContactComponents/ServiceLocation';
-import County from './ContactComponents/County';
-import ClientNumber from './ContactComponents/ClientNumber';
-import ZipCode from './ContactComponents/ZipCode';
-import TypeOfVictim from './ContactComponents/TypeOfVictim';
-import HearAboutSVC from './ContactComponents/HearAboutSVC';
-import PriorContact from './ContactComponents/PriorContact';
-import PriorToOctContact from './ContactComponents/PriorToOctContact';
+import AdvocateName from "./ContactComponents/AdvocateName";
+import CurrentDate from "./ContactComponents/CurrentDate";
+import StartTime from "./ContactComponents/StartTime";
+import EndTime from "./ContactComponents/EndTime";
+import ContactDate from "./ContactComponents/ContactDate";
+import ServiceLocation from "./ContactComponents/ServiceLocation";
+import County from "./ContactComponents/County";
+import ClientNumber from "./ContactComponents/ClientNumber";
+import ZipCode from "./ContactComponents/ZipCode";
+import TypeOfVictim from "./ContactComponents/TypeOfVictim";
+import HearAboutSVC from "./ContactComponents/HearAboutSVC";
+import PriorContact from "./ContactComponents/PriorContact";
+import PriorToOctContact from "./ContactComponents/PriorToOctContact";
 
-const mapStateToProps = state => ({
-  state
+const mapStateToProps = (state) => ({
+  state,
 });
 
-const styles = theme => ({
+const styles = (theme) => ({
   container: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "wrap",
   },
   textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
     width: 200,
   },
   menu: {
     width: 200,
   },
   formControl: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
     minWidth: 120,
   },
   group: {
-    margin: `${theme.spacing.unit}px 0`,
+    margin: `${theme.spacing(1)}px 0`,
   },
   importantText: {
-    color: '#F44336',
-    marginLeft: '15px'
-  }
+    color: "#F44336",
+    marginLeft: "15px",
+  },
 });
 
 const initialState = {
@@ -61,7 +61,7 @@ const initialState = {
   victim_type: "",
   victim_referral_source: "",
   victim_prior_contact: "",
-  victim_contact_prior_oct: ""
+  victim_contact_prior_oct: "",
 };
 
 class ContactInfo extends Component {
@@ -75,7 +75,7 @@ class ContactInfo extends Component {
     //changes any null values to undefined
     if (props.dispatchTo === "UPDATE_THE_FORM") {
       const { updateFormReducer } = props.state;
-      Object.keys(updateFormReducer).forEach(key => {
+      Object.keys(updateFormReducer).forEach((key) => {
         if (updateFormReducer[key] === null) {
           updateFormReducer[key] = "";
         }
@@ -90,22 +90,22 @@ class ContactInfo extends Component {
     }
   };
 
-  handleChangeFor = event => {
+  handleChangeFor = (event) => {
     const target = event.target;
     const value =
       target.type === "checkbox"
         ? target.checked
         : target.type === "radio"
-          ? JSON.parse(target.value)
-          : target.value;
+        ? JSON.parse(target.value)
+        : target.value;
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
     this.props.dispatch({
       type: this.props.dispatchTo,
-      payload: { ...this.state, [name]: value }
+      payload: { ...this.state, [name]: value },
     });
   };
 
@@ -197,9 +197,9 @@ class ContactInfo extends Component {
                   handleChangeFor={this.handleChangeFor}
                   victim_prior_contact={this.state.victim_prior_contact}
                 />
-              <Typography variant="body2" className={classes.importantText}>
-                * Mandatory field
-              </Typography>
+                <Typography variant="body2" className={classes.importantText}>
+                  * Mandatory field
+                </Typography>
               </Grid>
               <Grid item xs={12} sm={12} md={9} lg={9}>
                 <PriorToOctContact

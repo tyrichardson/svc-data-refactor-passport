@@ -1,15 +1,24 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import AdminNav from '../Nav/AdminNav/AdminNav';
-import UserEntryPageList from './UserEntryPageList';
-import axios from 'axios';
-import Button from '@material-ui/core/Button';
-import { Paper, Typography, Card, Grid, withStyles, Snackbar, TextField, Radio } from '@material-ui/core';
-import PropTypes from 'prop-types';
-import { teal, grey } from '@material-ui/core/colors';
+import AdminNav from "../Nav/AdminNav/AdminNav";
+import UserEntryPageList from "./UserEntryPageList";
+import axios from "axios";
+import Button from "@material-ui/core/Button";
+import {
+  Paper,
+  Typography,
+  Card,
+  Grid,
+  withStyles,
+  Snackbar,
+  TextField,
+  Radio,
+} from "@material-ui/core";
+import PropTypes from "prop-types";
+import { teal, grey } from "@material-ui/core/colors";
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
   state,
 });
@@ -20,23 +29,23 @@ const mapStateToProps = state => ({
 //   },
 // }));
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
-    width: '100%',
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
+    width: "100%",
+    marginTop: theme.spacing(1) * 3,
+    overflowX: "auto",
   },
   table: {
     minWidth: 700,
   },
   row: {
-    width: '100%',
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
+    width: "100%",
+    marginTop: theme.spacing(1) * 3,
+    overflowX: "auto",
   },
   textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
     width: 200,
   },
 });
@@ -45,120 +54,129 @@ const style = {
   titleCard: {
     color: grey[50],
     backgroundColor: teal[300],
-    padding: '20px',
-    margin: '10px',
-    textAlign: 'center'
+    padding: "20px",
+    margin: "10px",
+    textAlign: "center",
   },
   title: {
     color: grey[50],
   },
   paper: {
-    padding: '10px',
-    backgroundColor: grey[300]
-  }
-}
+    padding: "10px",
+    backgroundColor: grey[300],
+  },
+};
 class UserEntryPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: '',
-      password: '',
-      user_type: '',
-      message: '',
+      username: "",
+      password: "",
+      user_type: "",
+      message: "",
       open: false,
-      vertical: 'top',
-      horizontal: 'center',
+      vertical: "top",
+      horizontal: "center",
     };
   }
 
   componentDidMount() {
-    this.props.dispatch({ type: 'FETCH_USER' });
+    this.props.dispatch({ type: "FETCH_USER" });
     this.props.dispatch({
-      type: 'GET_USERS_SAGA'
+      type: "GET_USERS_SAGA",
     });
   }
 
   componentDidUpdate() {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push('login');
-    };
+      this.props.history.push("login");
+    }
   }
 
   registerUser = (event) => {
     event.preventDefault();
     console.log("clicked add new user submit button");
-    if (this.state.username === '' || this.state.password === '' || this.state.user_type === '') {
+    if (
+      this.state.username === "" ||
+      this.state.password === "" ||
+      this.state.user_type === ""
+    ) {
       this.setState({
-        message: 'Type a username, password, and check user type',
+        message: "Type a username, password, and check user type",
       });
     } else {
       const config = {
-        headers: new Headers({ 'Content-Type': 'application/json' }),
+        headers: new Headers({ "Content-Type": "application/json" }),
         withCredentials: true,
-      }
+      };
       const body = {
         username: this.state.username,
         password: this.state.password,
         user_type: this.state.user_type,
-      }
-      axios.post('/api/user/register/new', body, config)
+      };
+      axios
+        .post("/api/user/register/new", body, config)
         .then((response) => {
           if (response.status === 201) {
             // alert("You successfully added the new user!");
             this.handleSnackBar();
             // console.log(this.handleSnackBar(), this.state.open);
             this.props.dispatch({
-              type: 'GET_USERS_SAGA'
+              type: "GET_USERS_SAGA",
             });
             this.setState({
-              username: '',
-              password: '',
-              user_type: '',
-              message: '',
-            })
+              username: "",
+              password: "",
+              user_type: "",
+              message: "",
+            });
           } else {
             this.setState({
-              message: 'That username might be in use already. Please try again.',
+              message:
+                "That username might be in use already. Please try again.",
             });
           }
         })
         .catch(() => {
           this.setState({
-            message: 'Something went wrong. You can try refreshing the browser, or you may need to wait a few minutes for Heroku to restart before trying again.',
+            message:
+              "Something went wrong. You can try refreshing the browser, or you may need to wait a few minutes for Heroku to restart before trying again.",
           });
         });
     }
-  }
+  };
 
-  handleInputChangeFor = name => event => {
+  handleInputChangeFor = (name) => (event) => {
     const target = event.target;
-    const value = target.type === ('radio') ? JSON.parse(target.value) :
-      target.value;
+    const value =
+      target.type === "radio" ? JSON.parse(target.value) : target.value;
     const name = target.name;
 
-    this.setState({
-      [name]: value
-    }, () => { console.log(this.state) });
-  }
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
 
   renderAlert() {
-    if (this.state.message !== '') {
+    if (this.state.message !== "") {
       return (
-        <h2
-          className="alert"
-          role="alert"
-        >
+        <h2 className="alert" role="alert">
           {this.state.message}
         </h2>
       );
     }
-    return (<span />);
+    return <span />;
   }
 
   handleSnackBar = () => {
     this.setState({ open: true });
-    console.log('in handleSnackBar', this.state.open);
+    console.log("in handleSnackBar", this.state.open);
   };
 
   //SnackBar close
@@ -166,14 +184,12 @@ class UserEntryPage extends Component {
     this.setState({ open: false });
   };
 
-
   render() {
-
     const { classes } = this.props;
 
     const userEntryPageList = this.props.state.getUsersReducer.map((user) => {
-      return (<UserEntryPageList key={user.id} user={user} />)
-    })
+      return <UserEntryPageList key={user.id} user={user} />;
+    });
 
     let content = null;
 
@@ -183,15 +199,20 @@ class UserEntryPage extends Component {
         <div>
           <div>
             <AdminNav />
-            <Grid container direction="row" justify="flex-start" alignItems="center" spacing={40}>
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              spacing={40}
+            >
               <Grid item xs={3} sm={3}></Grid>
               <Grid item xs={8} sm={8}>
                 <Paper style={style.paper}>
                   <Card style={style.titleCard}>
-                    <Typography variant="display1"
-                      style={style.title}>
+                    <Typography variant="h4" style={style.title}>
                       User Entry Page
-                </Typography>
+                    </Typography>
                   </Card>
                   {this.renderAlert()}
                   <Card style={{ margin: "10px", padding: "20px" }}>
@@ -203,7 +224,7 @@ class UserEntryPage extends Component {
                       type="text"
                       margin="normal"
                       value={this.state.username}
-                      onChange={this.handleInputChangeFor('username')}
+                      onChange={this.handleInputChangeFor("username")}
                     />
                     <TextField
                       name="password"
@@ -212,34 +233,41 @@ class UserEntryPage extends Component {
                       type="password"
                       margin="normal"
                       value={this.state.password}
-                      onChange={this.handleInputChangeFor('password')}
+                      onChange={this.handleInputChangeFor("password")}
                     />
-                    <h4>
-                      User type:
-                      </h4>
-                    <Radio checked={`${this.state.user_type}` === 'true'} onChange={this.handleInputChangeFor('user_type')} value="true" name="user_type" aria-label="Admin" />
+                    <h4>User type:</h4>
+                    <Radio
+                      checked={`${this.state.user_type}` === "true"}
+                      onChange={this.handleInputChangeFor("user_type")}
+                      value="true"
+                      name="user_type"
+                      aria-label="Admin"
+                    />
                     Admin
-                      <Radio checked={`${this.state.user_type}` === 'false'} onChange={this.handleInputChangeFor('user_type')} value="false" name="user_type" aria-label="Standard" />
+                    <Radio
+                      checked={`${this.state.user_type}` === "false"}
+                      onChange={this.handleInputChangeFor("user_type")}
+                      value="false"
+                      name="user_type"
+                      aria-label="Standard"
+                    />
                     Standard
-                    <div style={{ float: 'right', marginRight: '12px' }}>
+                    <div style={{ float: "right", marginRight: "12px" }}>
                       <Button
                         name="submit"
                         variant="flat"
                         color="primary"
                         onClick={this.registerUser}
                       >
-                        Submit</Button>
+                        Submit
+                      </Button>
                     </div>
                   </Card>
                   <Card style={{ margin: "10px", padding: "20px" }}>
                     <div>
                       <h4>Current users:</h4>
                     </div>
-                    <div>
-
-                      {userEntryPageList}
-
-                    </div>
+                    <div>{userEntryPageList}</div>
                   </Card>
                 </Paper>
               </Grid>
@@ -259,22 +287,18 @@ class UserEntryPage extends Component {
         autoHideDuration={2000}
         onClose={this.handleClose}
         ContentProps={{
-          'aria-describedby': 'message-id',
+          "aria-describedby": "message-id",
         }}
         message={<span id="message-id">User added</span>}
       />
-    )
+    );
 
     return (
       <div>
-        <div>
-          {content}
-        </div>
-        <div>
-          {snackbar}
-        </div>
+        <div>{content}</div>
+        <div>{snackbar}</div>
       </div>
-    )
+    );
   }
 }
 

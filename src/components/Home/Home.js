@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 class UserPage extends Component {
   componentDidMount() {
-    this.props.dispatch({ type: FETCH_USER });
+    this.props.dispatch({ type: 'FETCH_USER' });
   }
 
   componentDidUpdate() {

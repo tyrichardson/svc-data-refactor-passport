@@ -1,32 +1,39 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { MenuItem, InputLabel, Select, FormControl, Divider, TextField } from '@material-ui/core';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import {
+  MenuItem,
+  InputLabel,
+  Select,
+  FormControl,
+  Divider,
+  TextField,
+} from "@material-ui/core";
 
-const styles = theme => ({
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: 200,
-    },
-    root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    formControl: {
-        margin: theme.spacing.unit,
-        minWidth: 200,
-    },
+const styles = (theme) => ({
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
+  root: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 200,
+  },
 });
 
-const mapStateToProps = state => ({
-    state
+const mapStateToProps = (state) => ({
+  state,
 });
 
 const initialState = {
   victim_immigrant: "",
-  victim_immigrant_other_specify: ""
+  victim_immigrant_other_specify: "",
 };
 
 class ImmigrantStatus extends Component {
@@ -36,11 +43,11 @@ class ImmigrantStatus extends Component {
   }
 
   static getDerivedStateFromProps = (props, state) => {
-      //if on update the form sets state to the update form reducer
-      //changes any null values to undefined
+    //if on update the form sets state to the update form reducer
+    //changes any null values to undefined
     if (props.dispatchTo === "UPDATE_THE_FORM") {
       const { updateFormReducer } = props.state;
-      Object.keys(updateFormReducer).forEach(key => {
+      Object.keys(updateFormReducer).forEach((key) => {
         if (updateFormReducer[key] === null) {
           updateFormReducer[key] = undefined;
         }
@@ -55,22 +62,22 @@ class ImmigrantStatus extends Component {
     }
   };
 
-  handleChangeFor = event => {
+  handleChangeFor = (event) => {
     const target = event.target;
     const value =
       target.type === "checkbox"
         ? target.checked
         : target.type === "radio"
-          ? target.checked
-          : target.value;
+        ? target.checked
+        : target.value;
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
     this.props.dispatch({
       type: this.props.dispatchTo,
-      payload: { ...this.state, [name]: value }
+      payload: { ...this.state, [name]: value },
     });
   };
 
@@ -87,7 +94,7 @@ class ImmigrantStatus extends Component {
             autoWidth
             inputProps={{
               name: "victim_immigrant",
-              id: "victim_immigrant"
+              id: "victim_immigrant",
             }}
           >
             <MenuItem style={{ width: "100%" }} value="africa">
@@ -138,7 +145,7 @@ class ImmigrantStatus extends Component {
 }
 
 ImmigrantStatus.propTypes = {
-    classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(ImmigrantStatus));

@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Modal from '@material-ui/core/Modal';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Modal from "@material-ui/core/Modal";
 
 function getModalStyle() {
   const top = 50;
@@ -15,13 +15,13 @@ function getModalStyle() {
   };
 }
 
-const styles = theme => ({
+const styles = (theme) => ({
   paper: {
-    position: 'absolute',
-    width: theme.spacing.unit * 50,
+    position: "absolute",
+    width: theme.spacing(1) * 50,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4,
+    padding: theme.spacing(1) * 4,
   },
 });
 
@@ -68,4 +68,4 @@ CalendarModal.propTypes = {
 
 const CalendarModalWrapped = withStyles(styles)(CalendarModal);
 
-export default CalendarModalWrapped
+export default CalendarModalWrapped;

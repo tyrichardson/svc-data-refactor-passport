@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Drawer from '@material-ui/core/Drawer';
-import { List, ListItem } from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import Drawer from "@material-ui/core/Drawer";
+import { List, ListItem } from "@material-ui/core";
+import Divider from "@material-ui/core/Divider";
 
-import Logout from '../../Logout/Logout';
-import Header from '../../Header/Header';
+import Logout from "../../Logout/Logout";
+import Header from "../../Header/Header";
 
 const drawerWidth = 190;
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1,
     height: 100,
     zIndex: 1,
-    overflow: 'visible',
-    position: 'fixed',
-    display: 'flex',
+    overflow: "visible",
+    position: "fixed",
+    display: "flex",
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -30,10 +30,10 @@ const styles = theme => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    color: 'primary'
+    color: "primary",
   },
   drawerPaper: {
-    position: 'fixed',
+    position: "fixed",
     width: drawerWidth,
   },
   toolbar: theme.mixins.toolbar,
@@ -41,12 +41,12 @@ const styles = theme => ({
     flex: 1,
   },
   paper: {
-    marginRight: theme.spacing.unit * 2,
+    marginRight: theme.spacing(1) * 2,
   },
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing(1) * 3,
     minWidth: 0, // So the Typography noWrap works
   },
 });
@@ -57,14 +57,22 @@ class UserNav extends Component {
     return (
       <div className={classes.root}>
         <AppBar position="fixed" color="primary" className={classes.appBar}>
-          <Toolbar >
+          <Toolbar>
             <Header />
-            <Typography variant="display1" color="inherit" className={classes.flex} style={{ paddingLeft: '20px', color: '#FAFAFA' }}>
+            <Typography
+              variant="h4"
+              color="inherit"
+              className={classes.flex}
+              style={{ paddingLeft: "20px", color: "#FAFAFA" }}
+            >
               Data Management System
             </Typography>
             <br />
             <Button>
-              <Link to="/userlandingpage" style={{ color: "white", textDecoration: 'none' }}>
+              <Link
+                to="/userlandingpage"
+                style={{ color: "white", textDecoration: "none" }}
+              >
                 Home
               </Link>
             </Button>
@@ -83,9 +91,9 @@ class UserNav extends Component {
           <br />
           <br />
           <List>
-          <Typography variant="title" className="navTitle">
-            Forms
-          </Typography>
+            <Typography variant="title" className="navTitle">
+              Forms
+            </Typography>
             <ListItem button>
               <Link to="/telephone" className="navButton">
                 Telephone
@@ -99,9 +107,9 @@ class UserNav extends Component {
           </List>
         </Drawer>
       </div>
-    )
+    );
   }
-};
+}
 
 UserNav.propTypes = {
   classes: PropTypes.object.isRequired,

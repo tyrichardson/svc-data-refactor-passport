@@ -1,43 +1,41 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { TextField } from '@material-ui/core';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import { TextField } from "@material-ui/core";
 
-const styles = theme => ({
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: 200,
-    },
+const styles = (theme) => ({
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
 });
 
 class Pronouns extends Component {
+  handleChange = (event) => {
+    this.props.handleChangeFor(event);
+  };
 
-    handleChange = (event) => {
-        this.props.handleChangeFor(event);
-    }
-
-    render() {
-        const { classes } = this.props;
-        return (
-            <div>
-                <TextField
-                    name="victim_gender_pronouns"
-                    label="Gender Pronouns"
-                    className={classes.textField}
-                    type="text"
-                    margin="normal"
-                    value={this.props.victim_gender_pronouns}
-                    onChange={this.handleChange}
-                />
-
-            </div>
-        )
-    }
+  render() {
+    const { classes } = this.props;
+    return (
+      <div>
+        <TextField
+          name="victim_gender_pronouns"
+          label="Gender Pronouns"
+          className={classes.textField}
+          type="text"
+          margin="normal"
+          value={this.props.victim_gender_pronouns}
+          onChange={this.handleChange}
+        />
+      </div>
+    );
+  }
 }
 
 Pronouns.propTypes = {
-    classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Pronouns);

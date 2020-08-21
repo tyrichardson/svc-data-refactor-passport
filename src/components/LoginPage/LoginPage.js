@@ -1,44 +1,51 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Header from '../Header/Header';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { Grid, Typography, Toolbar, AppBar, Paper, Card, TextField, Button } from '@material-ui/core';
-import { teal, grey } from '@material-ui/core/colors';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Header from "../Header/Header";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import {
+  Grid,
+  Typography,
+  Toolbar,
+  AppBar,
+  Paper,
+  Card,
+  TextField,
+  Button,
+} from "@material-ui/core";
+import { teal, grey } from "@material-ui/core/colors";
 
-
-const mapStateToProps = state => ({
- // user: state.user,
- // login: state.login,
-  errors: state.errors
+const mapStateToProps = (state) => ({
+  user: state.user,
+  errors: state.errors,
 });
 
-const styles = theme => ({
+const styles = (theme) => ({
   card: {
-    padding: '20px',
-    margin: '10px'
+    padding: "20px",
+    margin: "10px",
   },
   titleCard: {
     color: grey[50],
     backgroundColor: teal[300],
-    padding: '20px',
-    margin: '10px'
+    padding: "20px",
+    margin: "10px",
   },
   paper: {
-    padding: '10px',
-    backgroundColor: grey[300]
+    padding: "10px",
+    backgroundColor: grey[300],
   },
   textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
     width: 200,
   },
 });
 
 class LoginPage extends Component {
   state = {
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   };
 
   login = (event) => {
@@ -46,43 +53,42 @@ class LoginPage extends Component {
 
     if (this.state.username && this.state.password) {
       this.props.dispatch({
-        type: 'LOGIN',
+        type: "LOGIN",
         payload: {
           username: this.state.username,
           password: this.state.password,
         },
       });
     } else {
-      this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
+      this.props.dispatch({ type: "LOGIN_INPUT_ERROR" });
     }
-  } // end login
+  }; // end login
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.user.userInfo === true) {
-      this.props.history.push('/adminlandingpage');
-    } else if (nextProps.user.userInfo === false) {
-      this.props.history.push('/userlandingpage');
+  static getDerivedStateFromProps(props) {
+    console.log('nextProps ', props )
+    if (props.user.user_type === true) {
+      props.history.push("/adminlandingpage");
+    } else if (props.user.user_type === false) {
+      props.history.push("/userlandingpage");
     }
+    return null;
   }
 
-  handleInputChangeFor = propertyName => (event) => {
+  handleInputChangeFor = (propertyName) => (event) => {
     this.setState({
       [propertyName]: event.target.value,
     });
-  }
+  };
 
   renderAlert() {
-    if (this.props.errors.loginMessage !== '') {
+    if (this.props.errors.loginMessage !== "") {
       return (
-        <h2
-          className="alert"
-          role="alert"
-        >
+        <h2 className="alert" role="alert">
           {this.props.errors.loginMessage}
         </h2>
       );
     }
-    return (<span />);
+    return <span />;
   }
 
   render() {
@@ -92,20 +98,34 @@ class LoginPage extends Component {
         <AppBar>
           <Toolbar>
             <Header />
-            <Typography variant="display1" color="inherit" style={{ paddingLeft: '20px', color: '#FAFAFA' }}>
+            <Typography
+              variant="h4"
+              color="inherit"
+              style={{ paddingLeft: "20px", color: "#FAFAFA" }}
+            >
               Data Management System
             </Typography>
           </Toolbar>
         </AppBar>
-        <div style={{ marginTop: '100px' }}>
+        <div style={{ marginTop: "100px" }}>
           {this.renderAlert()}
-          <Grid container direction="row" justify="space-between" alignItems="center">
+          <Grid
+            container
+            direction="row"
+            justify="space-between"
+            alignItems="center"
+          >
             <Grid item sm={4}></Grid>
             <Grid item xs={12} sm={4}>
               <Paper className={classes.paper}>
                 <div>
                   <Card className={classes.titleCard}>
-                    <Typography variant="display1" style={{ textAlign: 'center', color: grey[50] }}>Login</Typography>
+                    <Typography
+                      variant="h4"
+                      style={{ textAlign: "center", color: grey[50] }}
+                    >
+                      Login
+                    </Typography>
                   </Card>
                   <Card className={classes.card}>
                     <div>
@@ -116,7 +136,7 @@ class LoginPage extends Component {
                         type="text"
                         margin="normal"
                         value={this.state.username}
-                        onChange={this.handleInputChangeFor('username')}
+                        onChange={this.handleInputChangeFor("username")}
                       />
                     </div>
                     <div>
@@ -127,11 +147,13 @@ class LoginPage extends Component {
                         type="password"
                         margin="normal"
                         value={this.state.password}
-                        onChange={this.handleInputChangeFor('password')}
+                        onChange={this.handleInputChangeFor("password")}
                       />
                     </div>
-                    <div style={{ float: 'right' }}>
-                      <Button variant="raised" onClick={this.login}>Log In</Button>
+                    <div style={{ float: "right" }}>
+                      <Button variant="contained" onClick={this.login}>
+                        Log In
+                      </Button>
                     </div>
                   </Card>
                 </div>
@@ -140,7 +162,7 @@ class LoginPage extends Component {
             <Grid item sm={4}></Grid>
           </Grid>
         </div>
-      </div >
+      </div>
     );
   }
 }

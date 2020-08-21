@@ -57,7 +57,7 @@ class App extends Component {
             path="/login"
             component={LoginPage}
           />
-          <Route
+          <ProtectedRoute
             exact
             path="/register"
             component={RegisterPage}

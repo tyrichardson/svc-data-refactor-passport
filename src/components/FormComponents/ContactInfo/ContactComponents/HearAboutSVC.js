@@ -1,36 +1,35 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { TextField } from '@material-ui/core';
+import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
+import { TextField } from "@material-ui/core";
 
-const styles = theme => ({
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: 200,
-    },
+const styles = (theme) => ({
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
 });
 
 class HearAboutSVC extends Component {
+  handleChange = (event) => {
+    this.props.handleChangeFor(event);
+  };
 
-    handleChange = (event) => {
-        this.props.handleChangeFor(event);
-    }
-
-    render() {
-        return (
-            <div>
-                <TextField
-                    name="victim_referral_source"
-                    label="How did they hear about SVC?"
-                    style={{ width: 300 }}
-                    type="text"
-                    margin="normal"
-                    value={this.props.victim_referral_source}
-                    onChange={this.handleChange}
-                />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <TextField
+          name="victim_referral_source"
+          label="How did they hear about SVC?"
+          style={{ width: 300 }}
+          type="text"
+          margin="normal"
+          value={this.props.victim_referral_source}
+          onChange={this.handleChange}
+        />
+      </div>
+    );
+  }
 }
 
 export default withStyles(styles)(HearAboutSVC);

@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
-import { Card, TextField } from '@material-ui/core';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import { Card, TextField } from "@material-ui/core";
 
-const mapStateToProps = state => ({
-    state
+const mapStateToProps = (state) => ({
+  state,
 });
 
-const styles = theme => ({
-    card: {
-        padding: '20px',
-        margin: '10px'
-    },
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: 200,
-    },
-})
+const styles = (theme) => ({
+  card: {
+    padding: "20px",
+    margin: "10px",
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
+});
 
 const initialState = {
   referral_svc: "",
   referral_agency: "",
-  referral_other: ""
+  referral_other: "",
 };
 
 class Referrals extends Component {
@@ -35,7 +35,7 @@ class Referrals extends Component {
   static getDerivedStateFromProps = (props, state) => {
     if (props.dispatchTo === "UPDATE_THE_FORM") {
       const { updateFormReducer } = props.state;
-      Object.keys(updateFormReducer).forEach(key => {
+      Object.keys(updateFormReducer).forEach((key) => {
         if (updateFormReducer[key] === null) {
           updateFormReducer[key] = undefined;
         }
@@ -49,17 +49,17 @@ class Referrals extends Component {
     }
   };
 
-  handleChangeFor = event => {
+  handleChangeFor = (event) => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
     this.props.dispatch({
       type: this.props.dispatchTo,
-      payload: { ...this.state, [name]: value }
+      payload: { ...this.state, [name]: value },
     });
   };
 
@@ -112,7 +112,7 @@ class Referrals extends Component {
 }
 
 Referrals.propTypes = {
-    classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(Referrals));
