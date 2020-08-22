@@ -10,14 +10,6 @@ const mapStateToProps = state => ({
 });
 
 class Logout extends Component {
-
-  /*
-  componentDidUpdate() {
-    if (!this.props.state.user.isLoading && this.props.state.user.userName === null) {
-      this.props.history.push('/login');
-    }
-  }
-  */
   
   logout = () => {
     this.props.dispatch({type: 'LOGOUT'});

@@ -97,7 +97,7 @@ class Referrals extends Component {
           <TextField
             name="referral_other"
             label="Other services, support and resources(specify)"
-            style={{ width: "50%" }}
+            style={{ width: "75%" }}
             type="text"
             margin="normal"
             value={this.state.referral_other}

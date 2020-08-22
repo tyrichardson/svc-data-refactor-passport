@@ -19,7 +19,6 @@ class SubmitDialog extends React.Component {
 
   handleSubmit = () => {
     console.log(this.props.state.EntryFormReducer);
-    this.handleClickOpen9();
     this.props.dispatch({
       type: "ADD_NEW_VICTIM",
       payload: { ...this.props.state.EntryFormReducer }

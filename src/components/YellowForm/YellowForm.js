@@ -38,12 +38,7 @@ class YellowForm extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.dispatch({ type: "FETCH_USER" });
-  }
-
   handleSubmit = () => {
-    console.log(this.props.state.EntryFormReducer);
     this.props.dispatch({
       type: "ADD_NEW_VICTIM",
       payload: { ...this.state, ...this.props.state.EntryFormReducer },
@@ -69,9 +64,9 @@ class YellowForm extends Component {
 
   render() {
     let DataEntryNav;
-    if (this.props.state.user.userInfo === true) {
+    if (this.props.user.user_type === true) {
       DataEntryNav = <AdminNav />;
-    } else if (this.props.state.user.userInfo === false) {
+    } else if (this.props.user.user_type === false) {
       DataEntryNav = <UserNav />;
     }
     return (

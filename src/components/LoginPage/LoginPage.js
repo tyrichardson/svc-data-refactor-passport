@@ -59,16 +59,17 @@ class LoginPage extends Component {
           password: this.state.password,
         },
       });
+
     } else {
       this.props.dispatch({ type: "LOGIN_INPUT_ERROR" });
     }
   }; // end login
 
-  static getDerivedStateFromProps(props) {
-    if (props.user.user_type === true) {
-      props.history.push("/adminlandingpage");
-    } else if (props.user.user_type === false) {
-      props.history.push("/userlandingpage");
+  componentDidUpdate(prevProps) {
+    if (this.props.user !== prevProps.user && this.props.user.user_type === true) {
+      this.props.history.push("/adminlandingpage");
+    } else if (this.props.user !== prevProps.user && this.props.user.user_type === false) {
+      this.props.history.push("/userlandingpage");
     }
     return <span />;
   }

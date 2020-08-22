@@ -40,16 +40,11 @@ class PinkForm extends Component {
     };
   }
   handleSubmit = () => {
-    console.log(this.props.state.EntryFormReducer);
     this.props.dispatch({
       type: "ADD_NEW_VICTIM",
       payload: { ...this.state, ...this.props.state.EntryFormReducer },
     });
   };
-
-  componentDidMount() {
-    this.props.dispatch({ type: "FETCH_USER" });
-  }
 
   renderDemographics = () => {
     const { EntryFormReducer } = this.props.state;
@@ -68,9 +63,9 @@ class PinkForm extends Component {
 
   render() {
     let DataEntryNav;
-    if (this.props.state.user.userInfo === true) {
+    if (this.props.user.user_type === true) {
       DataEntryNav = <AdminNav />;
-    } else if (this.props.state.user.userInfo === false) {
+    } else if (this.props.user.user_type === false) {
       DataEntryNav = <UserNav />;
     }
     return (

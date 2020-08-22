@@ -26,9 +26,7 @@ const style = {
 };
 
 class AdminLandingPage extends Component {
-  componentDidMount() {
-    this.props.dispatch({ type: "FETCH_USER" });
-  }
+
   render() {
     return (
       <div>

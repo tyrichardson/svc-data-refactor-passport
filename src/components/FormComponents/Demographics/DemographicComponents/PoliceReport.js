@@ -17,7 +17,7 @@ const mapStateToProps = (state) => ({
 const styles = (theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 100,
+    minWidth: 150,
   },
 });
 
