@@ -52,7 +52,7 @@ class CalendarModal extends React.Component {
             <Typography variant="h6" id="modal-dates required">
               Please Enter Start and End Dates.
             </Typography>
-            <Typography variant="subheading" id="simple-modal-description">
+            <Typography variant="subtitle1" id="simple-modal-description">
               A start date and end date are required to complete the report.
             </Typography>
           </div>

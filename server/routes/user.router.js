@@ -16,7 +16,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.get('/users', (req, res) => {
   console.log('in admin-only backend GET for user list on UserEntryPage');
   if(req.isAuthenticated() && req.user.user_type === true) {
-    let queryText = 'SELECT id, username, user_type FROM user;';
+    let queryText = 'SELECT id, username, user_type FROM "user";';
     pool.query(queryText)
     .then((result) => {
       console.log('user.router result.rows', result.rows);
@@ -38,7 +38,7 @@ router.post('/register/new', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
   const user_type = req.body.user_type;
-  const queryText = 'INSERT INTO user (username, password, user_type) VALUES ($1, $2, $3) RETURNING id;';
+  const queryText = 'INSERT INTO "user" (username, password, user_type) VALUES ($1, $2, $3) RETURNING id;';
   pool.query(queryText, [username, password, user_type])
     .then(() => { res.sendStatus(201); })
     .catch((err) => { res.sendStatus(500); });

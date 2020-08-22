@@ -54,7 +54,7 @@ class AdminLandingPage extends Component {
                 </Card>
                 <Card style={style.card}>
                   <Typography
-                    variant="headline"
+                    variant="h5"
                     style={{ textAlign: "center" }}
                   >
                     Reporting, Admin Entry Tools, Data Entry
@@ -62,7 +62,7 @@ class AdminLandingPage extends Component {
                   <br />
                   <Divider />
                   <br />
-                  <Typography variant="subheading">
+                  <Typography variant="subtitle1">
                     Federal and County reporting displays the selected report.
                     <br />
                     <br /> Custom reporting allows you to select various

@@ -23,12 +23,6 @@ const mapStateToProps = (state) => ({
   state,
 });
 
-// const CustomTableCell = withStyles(theme => ({
-//   body: {
-//     fontSize: 15,
-//   },
-// }));
-
 const styles = (theme) => ({
   root: {
     width: "100%",
@@ -88,12 +82,14 @@ class UserEntryPage extends Component {
     });
   }
 
+  /*
   componentDidUpdate() {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
       this.props.history.push("login");
     }
   }
-
+  */
+  
   registerUser = (event) => {
     event.preventDefault();
     console.log("clicked add new user submit button");

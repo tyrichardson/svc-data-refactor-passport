@@ -65,13 +65,12 @@ class LoginPage extends Component {
   }; // end login
 
   static getDerivedStateFromProps(props) {
-    console.log('nextProps ', props )
     if (props.user.user_type === true) {
       props.history.push("/adminlandingpage");
     } else if (props.user.user_type === false) {
       props.history.push("/userlandingpage");
     }
-    return null;
+    return <span />;
   }
 
   handleInputChangeFor = (propertyName) => (event) => {

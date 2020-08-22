@@ -34,11 +34,11 @@ class UserLandingPage extends Component {
             spacing={3}
           >
             <Grid item sm={2}></Grid>
-            <Grid item xs={12} sm={8}>
+            <Grid item xs={12} sm={9}>
               <Paper style={style.paper}>
                 <Card style={style.titleCard}>
                   <Typography
-                    variant="display2"
+                    variant="h3"
                     style={{ textAlign: "center", color: grey[50] }}
                   >
                     Welcome!
@@ -51,7 +51,7 @@ class UserLandingPage extends Component {
                   <br />
                   <Divider />
                   <br />
-                  <Typography variant="subheading">
+                  <Typography variant="subtitle1">
                     SVC contact forms are color coded to represent the type of
                     service provided.
                     <br /> - Pink forms are for telephone contacts.
@@ -64,7 +64,7 @@ class UserLandingPage extends Component {
                 </Card>
               </Paper>
             </Grid>
-            <Grid item sm={2}></Grid>
+            <Grid item sm={1}></Grid>
           </Grid>
         </div>
       </div>

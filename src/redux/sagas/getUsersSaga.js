@@ -2,7 +2,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* getUsersResponse(action) {
-  console.log('getUsersResponce running in getUsersSaga');
+  console.log('getUsersResponse running in getUsersSaga');
   const config = {
     headers: {'Content-Type': 'application/json'},
     withCredentials: true,
