@@ -52,14 +52,12 @@ class UserLandingPage extends Component {
                   <Divider />
                   <br />
                   <Typography variant="subtitle1">
-                    SVC contact forms are color coded to represent the type of
-                    service provided.
+                    SVC contact forms are color coded to represent the type of service provided.
                     <br /> - Pink forms are for telephone contacts.
                     <br /> - Yellow form are for in-person contacts.
                     <br />
                     <br />
-                    Select the form option on the left that matches the type of
-                    form you are entering.
+                    Select the form option on the left that matches the type of form you are entering.
                   </Typography>
                 </Card>
               </Paper>

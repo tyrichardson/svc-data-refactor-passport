@@ -32,7 +32,7 @@ router.get('/users', (req, res) => {
 
 //Handles POST request for Admin to create a new user from the UserEntryPage
 router.post('/register/new', (req, res, next) => {
-  console.log('In admin-only backend post route for adding new user on UserEntryPage:', req.user);
+  console.log('In admin-only backend post route for adding new user on UserEntryPage');
   if(req.isAuthenticated() && req.user.user_type === true) {
     console.log('req in new user post:', req.body);
   const username = req.body.username;
@@ -50,7 +50,7 @@ router.post('/register/new', (req, res, next) => {
 //Handles DELETE request of existing user on UserEntryPage
 //Only a logged-in admin can delete a user (in db user table, user_type is boolean; true = admin; false = user)
 router.delete('/:id', (req, res) => {
-  console.log('In admin-only backend delete route for current user list on UserEntryPage, req.params is:', req.params);
+  console.log('In admin-only backend delete route for current user list on UserEntryPage, req.params');
   if(req.isAuthenticated() && req.user.user_type === true) {
     let queryText = 'DELETE FROM "user" WHERE id = $1;';
     pool.query(queryText, [req.params.id])

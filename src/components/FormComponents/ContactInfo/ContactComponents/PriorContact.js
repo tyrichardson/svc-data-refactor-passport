@@ -3,7 +3,6 @@ import { Radio } from '@material-ui/core';
 
 class PriorContact extends Component {
 
-
     handleRadio = (event) => {
         this.props.handleChangeFor(event);
     }
