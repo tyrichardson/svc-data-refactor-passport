@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { Checkbox } from '@material-ui/core';
+import React, { Component } from "react";
+import { Checkbox } from "@material-ui/core";
+// import { isNamedImports } from "typescript";
 
 class CivilLegalProcess extends Component {
   constructor() {
@@ -9,7 +10,7 @@ class CivilLegalProcess extends Component {
     this.state = {
       checked1: false,
       checked2: false,
-      checked3: false
+      checked3: false,
     };
   }
 
@@ -28,8 +29,8 @@ class CivilLegalProcess extends Component {
 
   // Once one of the checkboxes is checked, look for the name and tell InPersonServices which
   // one has been clicked and set it's value to whichever boolean corresponds to it's checked status
-  handleChecked = name => event => {
-    this.setState({ checked: event.target.checked });
+  handleChecked = (name) => (event) => {
+    this.setState({ [name]: event.target.checked });
     this.props.handleChangeFor(event);
   };
 

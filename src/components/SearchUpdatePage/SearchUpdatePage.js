@@ -56,10 +56,7 @@ class SearchUpdatePage extends Component {
       userInput: "",
     };
   }
-  //gets user info on load
-  componentDidMount() {
-    this.props.dispatch({ type: "FETCH_USER" });
-  }
+
   // sets input to state
   handleUserInput = (event) => {
     this.setState({

@@ -2,13 +2,12 @@ import { call, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* deleteFormSaga(action) {
-  yield console.log('deleteFormSaga running', action);
+  yield console.log('deleteFormSaga running');
   const config = {
     headers: {'Content-Type': 'application/json'},
     withCredentials: true,
   }
   try {
-    console.log('DeleteFormSaga', action.payload.id);
     yield call(axios.delete, `api/victim/${action.payload.id}`, config)
     yield alert(`delete confirmation ${action.payload.id}`)
   }

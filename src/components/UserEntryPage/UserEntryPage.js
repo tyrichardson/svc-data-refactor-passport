@@ -76,19 +76,10 @@ class UserEntryPage extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch({ type: "FETCH_USER" });
     this.props.dispatch({
       type: "GET_USERS_SAGA",
     });
   }
-
-  /*
-  componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push("login");
-    }
-  }
-  */
   
   registerUser = (event) => {
     event.preventDefault();
@@ -146,15 +137,14 @@ class UserEntryPage extends Component {
   handleInputChangeFor = (name) => (event) => {
     const target = event.target;
     const value =
-      target.type === "radio" ? JSON.parse(target.value) : target.value;
+      target.type === "radio" 
+      ? JSON.parse(target.value) 
+      : target.value;
     const name = target.name;
 
     this.setState(
       {
         [name]: value,
-      },
-      () => {
-        console.log(this.state);
       }
     );
   };
@@ -172,7 +162,6 @@ class UserEntryPage extends Component {
 
   handleSnackBar = () => {
     this.setState({ open: true });
-    console.log("in handleSnackBar", this.state.open);
   };
 
   //SnackBar close
@@ -189,8 +178,7 @@ class UserEntryPage extends Component {
 
     let content = null;
 
-    //TODO: update this if statement to be true when the logged-in user is user_type === true
-    if (this.props.user) {
+    if (this.props.user.user_type === true) {
       content = (
         <div>
           <div>

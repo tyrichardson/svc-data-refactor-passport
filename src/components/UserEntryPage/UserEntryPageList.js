@@ -56,17 +56,13 @@ class UserEntryPageList extends Component {
     redirect: false,
   };
 
-  componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push("login");
-    }
-  }
   //delete confirmation dialog
   handleClickOpen = () => {
     this.setState({
       open: true,
     });
   };
+
   handleClose = () => {
     this.setState({
       open: false,
@@ -74,7 +70,6 @@ class UserEntryPageList extends Component {
   };
 
   handleDelete = () => {
-    console.log("clicked delete button", this.props.user);
     this.props.dispatch({
       type: "DELETE_USER_SAGA",
       payload: this.props.user,
@@ -93,7 +88,7 @@ class UserEntryPageList extends Component {
     } else if (this.props.user.user_type === false) {
       user_type = <p>Standard</p>;
     } else {
-      user_type = <p>not working</p>;
+      user_type = <p></p>;
     }
 
     let dialog = (
@@ -111,8 +106,9 @@ class UserEntryPageList extends Component {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={this.handleClose}>No, keep the user.</Button>
-          <Button onClick={this.handleDelete} autoFocus>
+          <Button onClick={this.handleClose}>
+            No, keep the user.</Button>
+          <Button onClick={this.handleDelete}>
             Yes, delete the user.
           </Button>
         </DialogActions>

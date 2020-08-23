@@ -5,7 +5,6 @@ let defaultState = {
 const updateFormAlertReducer = (state = defaultState, action) => {
     switch (action.type) {
         case "UPDATE_SUCCESSFUL":
-            console.log(action.payload)
             return action.payload;
         case "CLOSE_UPDATE_SNACKBAR":
             return action.payload;

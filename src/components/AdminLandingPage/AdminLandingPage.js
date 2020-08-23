@@ -63,16 +63,13 @@ class AdminLandingPage extends Component {
                   <Typography variant="subtitle1">
                     Federal and County reporting displays the selected report.
                     <br />
-                    <br /> Custom reporting allows you to select various
-                    reporting criteria.
+                    <br /> Custom reporting allows you to select various reporting criteria.
                     <br />
                     <br /> User Entry allows you to create or delete a user.
                     <br />
-                    <br /> Search/Update allows you to bring up a specific
-                    record for reviewing, editing, or deleting.
+                    <br /> Search/Update allows you to bring up a specific record for reviewing, editing, or deleting.
                     <br />
-                    <br /> Data Entry allows you to enter Telephone (pink form)
-                    and In-Person (yellow form) contacts.
+                    <br /> Data Entry allows you to enter Telephone (pink form) and In-Person (yellow form) contacts.
                     <br />
                   </Typography>
                 </Card>
