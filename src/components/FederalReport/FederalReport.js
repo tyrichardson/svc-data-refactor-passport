@@ -11,7 +11,6 @@ import { teal, grey } from "@material-ui/core/colors";
 //ReportComponents
 import FederalDate from "../ReportComponents/Date/FederalDate";
 import FederalTotalVictims from "../ReportComponents/Total/FederalTotalVictims";
-// import NewVictims from '../ReportComponents/New/NewVictimsFederal';
 import FederalEthnicity from "../ReportComponents/Ethnicity/FederalEthnicity";
 import FederalGender from "../ReportComponents/Gender/FederalGender";
 import FederalAgeRange from "../ReportComponents/Age/FederalAgeRange";
@@ -23,9 +22,6 @@ import AdvocacyAccompaniment from "../ReportComponents/AdvocacyAccompaniment/Adv
 import EmotionalSupport from "../ReportComponents/EmotionalSupport(C)";
 import CriminalCivilJusticeSystemAssistance from "../ReportComponents/CriminalCivilJusticeSystemAssistance(E)";
 import NewVictimsFederal from "../ReportComponents/New/NewVictimsFederal";
-// import FederalDate from './ReportComponents/FederalDate';
-// const top = 50;
-// const left = 50;
 
 const mapStateToProps = (state) => ({
   user: state.user,
@@ -104,11 +100,6 @@ class FederalReport extends Component {
     console.log("print button clicked");
     window.print();
   };
-
-  componentDidMount() {
-    this.props.dispatch({ type: "FETCH_USER" });
-    console.log(this.props.state.getPersonReducer);
-  }
 
   render() {
     return (

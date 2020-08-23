@@ -2,13 +2,13 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 
-//getting victim databased on datesfrom database to report
+//getting victim data from database by date range for federal report
 function* getPerson(action) {
     console.log('in get saga')
     try {
         // const person = yield call(getPerson)
         const {startDate, endDate} = action.payload;
-        yield console.log('get victim data on pageload', action.payload);
+        yield console.log('get victim data for federal report', action.payload);
         const personDataResponse = yield call(axios.get, `/api/fed-report/?startDate=${startDate}&endDate=${endDate}`);
        yield put ({
            type: 'SET_PERSON_DATA',

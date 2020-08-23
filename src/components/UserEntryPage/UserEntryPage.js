@@ -250,6 +250,7 @@ class UserEntryPage extends Component {
                   <Card style={{ margin: "10px", padding: "20px" }}>
                     <div>
                       <h4>Current users:</h4>
+                      <span style={{fontSize: '16px'}}><em>** don't delete last Admin user **</em></span>
                     </div>
                     <div>{userEntryPageList}</div>
                   </Card>
