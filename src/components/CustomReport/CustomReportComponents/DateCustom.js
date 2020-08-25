@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
-//Style
+
 import { Typography, Card, Button, TextField } from "@material-ui/core";
 import { Radio } from "@material-ui/core";
 import { teal, grey } from "@material-ui/core/colors";
@@ -32,24 +32,17 @@ const style = {
     textAlign: "center",
     color: "white",
     padding: "10px",
-
-    // position: 'abosolute',
   },
   paper: {
     backgroundColor: grey[300],
     padding: "10px",
-    // margin: '50px',
   },
 };
 
 class DateCustom extends Component {
-  componentDidMount() {
-    this.props.dispatch({ type: "FETCH_USER" });
-    console.log(this.props.state.getCountyReducer);
-  }
 
   render() {
-    // const { classes } = this.props;
+    
     return (
       <div>
         <Card style={{ margin: "10px" }}>

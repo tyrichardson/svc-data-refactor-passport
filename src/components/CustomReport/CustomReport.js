@@ -21,7 +21,7 @@ import SexualOrientationCustom from "./CustomReportComponents/SexualOrientationC
 import SpecialClassificationCustom from "./CustomReportComponents/SpecialClassificationCustom";
 import SupportOnCallCustom from "./CustomReportComponents/SupportedOnCallCustom";
 import TransgenderedCustom from "./CustomReportComponents/TransgenderedCustom";
-import TransortationCustom from "./CustomReportComponents/TransportationCustom";
+import TransportationCustom from "./CustomReportComponents/TransportationCustom";
 import VictimTypeCustom from "./CustomReportComponents/VitcimTypeCustom";
 import UnmetNeedsCustom from "./CustomReportComponents/UnmetNeedsCustom";
 import TypesOfVictimizationCustom from "./CustomReportComponents/TypesOfVictimizationCustom";
@@ -38,6 +38,7 @@ const mapStateToProps = (state) => ({
   user: state.user,
   state,
 });
+
 const style = {
   title: {
     backgroundColor: teal[300],
@@ -45,35 +46,12 @@ const style = {
     color: "white",
     padding: "10px",
 
-    // position: 'abosolute',
   },
   paper: {
     backgroundColor: grey[300],
     padding: "10px",
-    // margin: '50px',
   },
 };
-// const styles = theme => ({
-//     container: {
-//         display: 'flex',
-//         flexWrap: 'wrap',
-//     },
-//     textField: {
-//         marginLeft: theme.spacing(1),
-//         marginRight: theme.spacing(1),
-//         width: 200,
-//     },
-//     menu: {
-//         width: 200,
-//     },
-//     formControl: {
-//         margin: theme.spacing(1),
-//         minWidth: 120,
-//     },
-//     group: {
-//         margin: `${theme.spacing(1)}px 0`,
-//     },
-// });
 
 class customReportSelectionPage extends Component {
   state = {
@@ -101,7 +79,7 @@ class customReportSelectionPage extends Component {
     LocationCustomSelection: [],
     SupportOnCallCustomSelection: [],
     TransgenderedCustomSelection: [],
-    TransortationCustomSelection: [],
+    TransportationCustomSelection: [],
     VictimTypeCustomSelection: [],
     UnmetNeedsCustomSelection: [],
     TypesOfVictimizationCustomSelection: [],
@@ -131,7 +109,6 @@ class customReportSelectionPage extends Component {
       endDate: value,
     });
     this.props.dispatch({
-      //TODO: FIX this to remove from redux state
       type: "UPDATE_END_DATE",
       payload: { endDate: value },
     });
@@ -201,7 +178,6 @@ class customReportSelectionPage extends Component {
       });
       this.props.history.push("/custom_report_output");
     }
-    // console.log(this.state)
   };
 
   closeModel = () => {
@@ -211,14 +187,6 @@ class customReportSelectionPage extends Component {
   };
 
   render() {
-    // Custom report options will only display if user is logged in as administrator
-    // let content = null;
-    // if (this.props.user.userName) {
-    //     content = (
-    //      TODO: add content here
-    //     )
-    // }
-
     return (
       <div>
         <AdminNav />
@@ -230,15 +198,11 @@ class customReportSelectionPage extends Component {
             textAlign: "center",
           }}
         >
-          {/* <Card > */}
-
           <Paper style={style.paper}>
-            {/* <Card style={{margin: "10px", padding: "20px"}}> */}
             <div
               className="customReportSpecificTopic"
               style={
                 { margin: "auto" }
-                //, marginRight: "500px"
               }
             >
               <DateCustom
@@ -435,14 +399,14 @@ class customReportSelectionPage extends Component {
                   selectedItem={this.state.TransgenderedCustomSelection}
                   inputValue={this.state.inputValue}
                 />
-                <TransortationCustom
+                <TransportationCustom
                   handleChangeForComponent={this.handleChangeForComponent(
-                    "TransortationCustomSelection"
+                    "TransportationCustomSelection"
                   )}
                   handleDelete={this.handleDelete(
-                    "TransortationCustomSelection"
+                    "TransportationCustomSelection"
                   )}
-                  selectedItem={this.state.TransortationCustomSelection}
+                  selectedItem={this.state.TransportationCustomSelection}
                   inputValue={this.state.inputValue}
                 />
                 <VictimTypeCustom

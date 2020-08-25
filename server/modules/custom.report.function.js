@@ -1,8 +1,7 @@
 const customReportObject = require("../modules/custom.report.object");
 
+// assuming params is an object with keys that correspond to keys in the customReportObject
 
-//i'm going to assume params is an object with keys that correspond to 
-//keys in the customReportObject 
 function makeCustomQuery  (params, customReportObject) {
     const countWhere = `(SELECT COUNT(*) FROM "victim" WHERE `;
     const contactDate = `AND "contact_date"  BETWEEN $1 AND $2)`;
@@ -14,8 +13,7 @@ function makeCustomQuery  (params, customReportObject) {
     let queryText = `SELECT `;
     let alias = 'custom_query';
 
-    //iterates over the params object and for each key 
-    //checks if the key matches a key in the customReportObject
+    //iterates over the params object and for each key checks if the key matches a key in the customReportObject
     Object.keys(params).forEach((keyParams, index, array)=>{
         if (keyParams == "and") {
           queryText += " AND ";
@@ -26,8 +24,8 @@ function makeCustomQuery  (params, customReportObject) {
           alias = "custom_query";
           return;
         }
-        //checks if the want custom start and end date
-        else if(keyParams== 'startDate'){
+        //checks if they want custom start and end date
+        else if(keyParams == 'startDate'){
             values[0]= params[keyParams];
             return;
         } else if (keyParams == 'endDate'){
@@ -38,7 +36,7 @@ function makeCustomQuery  (params, customReportObject) {
         Object.keys(customReportObject).forEach((keyCustomReport)=>{
 
             if (keyParams == keyCustomReport && array[index - 1] !== "and" && array[index - 1] !== "or") {
-              //If matches adds the countWhere string and the query text at the key
+              //If matches adds the count where string and the query text at the key
               queryText += countWhere;
               queryText += customReportObject[keyCustomReport];
               alias = keyParams;
@@ -54,8 +52,8 @@ function makeCustomQuery  (params, customReportObject) {
 
     })//end params loop
 
-    //on the last on removes the space and comma
-    //adds a colon
+    //on the last one removes the space and comma
+    //adds a semicolon
 
 
     if(Object.keys(params).includes('and') || Object.keys(params).includes('or')){

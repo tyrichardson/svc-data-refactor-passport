@@ -18,7 +18,6 @@ const mapStateToProps = state => ({
 
 function getSuggestions(inputValue) {
   let count = 0;
-
   return GenderObject.filter(suggestion => {
     const keep =
       (!inputValue || suggestion.label.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1) &&

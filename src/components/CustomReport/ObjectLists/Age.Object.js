@@ -5,7 +5,7 @@ const AgeObject = [
     { label: '18-24', value: "victim_age_eighteen_to_twentyfour" },
     { label: '19-50', value: "victim_age_nineteen_to_fifty" },
     { label: '25-59', value: "victim_age_twentyfive_to_fiftynine" },
-    { label: '50 +', value: "victim_age_oler_than_fifty" },
+    { label: '50 +', value: "victim_age_older_than_fifty" },
     { label: '60 +', value: "victim_age_sixty_and_older" },
     { label: 'Unknown', value: "victim_age_unknown" }
 ]

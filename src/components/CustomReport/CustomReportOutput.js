@@ -18,7 +18,6 @@ class CustomReportOutput extends Component {
     else {
       return null;
     }
-      
   };
 
   shouldComponentUpdate(nextProps, nextState){
@@ -30,7 +29,6 @@ class CustomReportOutput extends Component {
       return null
     }
   }
-
 
   renderOutput = ()=>{
 
