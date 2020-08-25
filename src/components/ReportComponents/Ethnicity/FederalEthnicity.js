@@ -39,12 +39,6 @@ class Ethnicity extends Component {
         })
     }
 
-    componentDidMount() {
-
-        this.props.dispatch({ type: 'FETCH_USER' });
-        console.log(this.props.state.getPersonReducer)
-    }
-
     render() {
         return (
             <section className="race">

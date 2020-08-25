@@ -14,42 +14,7 @@ const mapStateToProps = state => ({
 });
 
 class Zipcode extends Component{ 
-    constructor(){
-        super();
-        this.state={
-            starTableCellate:'',
-            endDate:'',
-            county:'',
-            service_location: ''
-        }
-    }
-
-    handleChangeFor = (event) => {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
     
-        this.setState({
-          [name]: value
-        }); 
-       
-    }
-    submit = () => {
-        this.props.dispatch({
-            type: 'GET_PERSON_DATA_COUNTY', 
-            payload: this.state
-        })
-    }
-    print = () => {
-        console.log('print button clicked');
-        window.print();
-    }
-
-    componenTableCellidMount () {
-        
-        this.props.dispatch({type: 'FETCH_USER'});
-        console.log(this.props.state.getCountyReducer)
-    }
     render () {
         return (
             <section className="zipcode">

@@ -2,7 +2,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 
-//getting victim databased on datesfrom database to report
+//getting victim data based on dates from county report page
 function* getCounty(action) {
     console.log('in getCounty saga')
     try {
@@ -11,9 +11,8 @@ function* getCounty(action) {
         const startDate = action.payload.startDate;
         const endDate = action.payload.endDate;
 
-        yield console.log('get victim data on pageload line 11', action.payload);
+        yield console.log('get data for county report');
         const personCountyDataResponse = yield call(axios.get, `/api/county-report/?county=${county}&startDate=${startDate}&endDate=${endDate}`);
-        console.log('getPersonCounty', personCountyDataResponse.data)
        yield put ({
            type: 'SET_PERSON_DATA_COUNTY',
            payload: personCountyDataResponse.data

@@ -46,11 +46,6 @@ class CountyLocationType extends Component {
         window.print();
     }
 
-    componenTableCellidMount() {
-
-        this.props.dispatch({ type: 'FETCH_USER' });
-        console.log(this.props.state.getCountyReducer)
-    }
     render() {
         return (
             <section className="county">

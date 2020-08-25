@@ -13,7 +13,6 @@ import 'typeface-roboto';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Header from '../Header/Header';
 import LoginPage from '../LoginPage/LoginPage';
-import DataEntryPage from '../DataEntryPage/DataEntryPage';
 import PinkForm from '../PinkForm/PinkForm';
 import YellowForm from '../YellowForm/YellowForm';
 import FederalReport from '../FederalReport/FederalReport';
@@ -65,11 +64,6 @@ class App extends Component {
             exact
             path="/in-person"
             component={YellowForm}
-          />
-          <ProtectedRoute
-            exact 
-            path="/data_entry_page"
-            component={DataEntryPage}
           />
           <ProtectedRoute
             exact

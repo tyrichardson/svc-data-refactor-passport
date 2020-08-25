@@ -34,12 +34,7 @@ class CountyEthnicity extends Component{
         }); 
        
     }
-  
-    componentDidMount () {
-        
-        this.props.dispatch({type: 'FETCH_USER'});
-        console.log(this.props.state.getCountyReducer)
-    }
+ 
     render () {
         return (
             <section className="race">

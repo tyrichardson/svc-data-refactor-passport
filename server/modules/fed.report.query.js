@@ -1,5 +1,3 @@
-// const express = require("express");
-// const pool = require("../modules/pool");
 
 /*This is the SQL code for all federal reporting. 
 There is one query which is exported to report.federal.router.js.

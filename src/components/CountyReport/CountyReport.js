@@ -31,12 +31,10 @@ const style = {
     color: "white",
     padding: "10px",
 
-    // position: 'abosolute',
   },
   paper: {
     backgroundColor: grey[300],
     padding: "10px",
-    margin: "10px",
   },
 };
 const styles = (theme) => ({
@@ -62,50 +60,7 @@ const styles = (theme) => ({
 });
 
 class CountyReport extends Component {
-  constructor() {
-    super();
-    this.state = {
-      startDate: "",
-      endDate: "",
-      county: "",
-    };
-  }
-
-  handleChangeFor = (event) => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  submit = () => {
-    if (this.state.startDate === "" || this.state.endDate === "") {
-      console.log("no");
-
-      this.setState({
-        isOpen: true,
-      });
-    } else {
-      this.props.dispatch({
-        type: "GET_PERSON_DATA",
-        payload: this.state,
-      });
-    }
-  };
-
-  print = () => {
-    console.log("print button clicked");
-    window.print();
-  };
-
-  componentDidMount() {
-    this.props.dispatch({ type: "FETCH_USER" });
-    console.log(this.props.state.getCountyReducer);
-  }
-
+ 
   render() {
     return (
       <div>
