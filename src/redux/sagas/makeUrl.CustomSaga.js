@@ -16,10 +16,11 @@ const makeUrlFunction = (array, querySelector) => {
     });
     urlString = urlString.slice(0, -1);
   }
-
+console.log('urlString ', urlString);
   return urlString;
-
 };
+
+// example urlString: ?victim_age_nineteen_to_fifty=true&and=true&victim_gender_female=true
 
 export default makeUrlFunction;
 

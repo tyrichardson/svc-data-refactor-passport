@@ -6,7 +6,7 @@ const customReportObject = require("../modules/custom.report.object");
 
 /* Get for Custom Report
 sample query:
-http://localhost:5000/api/custom-report/?victim_ethnicity_asian=true&victim_gender_male=true&startDate=1999-01-01&endDate=2020-01-01
+http://localhost:5000/api/custom-report/?victim_ethnicity_asian=true&and=true&victim_gender_male=true&startDate=1999-01-01&endDate=2020-01-01
 */
 
 router.get("/", (req, res) => {

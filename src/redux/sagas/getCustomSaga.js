@@ -8,6 +8,8 @@ function* getCustomReport(action) {
         const {startDate, endDate, querySelector, selectedItem} = action.payload;
         
         let urlText = makeUrlFunction(selectedItem, querySelector);
+        
+        // example of urlText: ?victim_age_nineteen_to_fifty=true&and=true&victim_gender_female=true
 
         let customDataResponse = yield call(axios.get, `/api/custom-report/${urlText}&startDate=${startDate}&endDate=${endDate}`);
         yield put({
