@@ -147,7 +147,7 @@ let customReportObject = {
 
     bi_sexual: `"victim_sexual_orientation" = 'Bi-sexual'  `,
     gay: `"victim_sexual_orientation" = 'Gay'  `,
-    hetrosexual: `"victim_sexual_orientation" = 'Hetrosexual'  `,
+    heterosexual: `"victim_sexual_orientation" = 'Heterosexual'  `,
     lesbian: `"victim_sexual_orientation" = 'Lesbian'  `,
     other: `"victim_sexual_orientation" = 'Other' OR "victim_sexual_orientation" = 'other'  `,
     unknown: `"victim_sexual_orientation" = 'Unknown' OR "victim_sexual_orientation" = 'Unknown/pass' OR  "victim_sexual_orientation" IS NULL  `,
@@ -178,9 +178,9 @@ let customReportObject = {
 
 //TYPES OF VICTIM
     adultPrimaryVictim: `"victim_type" = adultPrimaryVictim `,
-    adultSecondayVictim: `"victim_type" = adultSecondayVictim `,
+    adultSecondaryVictim: `"victim_type" = adultSecondaryVictim `,
     youthPrimaryVictim: `"victim_type" = youthPrimaryVictim `,
-    youthSecondayVictim: `"victim_type" = youthSecondayVictim `,
+    youthSecondaryVictim: `"victim_type" = youthSecondaryVictim `,
 
 //TYPES OF VICTIMIZATION
     violence_adult_sexual: ` "violence_adult_sexual" = TRUE  `,
@@ -361,7 +361,7 @@ let customReportObject = {
             "victim_zipcode" != 55450   OR
             "victim_zipcode" != 55454   OR 
             "victim_zipcode" != 55455`,
- zipcode_unkown: ` "victim_zipcode" IS NULL `
+ zipcode_unknown: ` "victim_zipcode" IS NULL `
 }
 
 module.exports = customReportObject;
