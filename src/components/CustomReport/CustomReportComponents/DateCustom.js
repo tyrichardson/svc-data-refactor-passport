@@ -103,6 +103,8 @@ class DateCustom extends Component {
               />
               all
               <br />
+              <p>selection1 <em>and</em> selection2; selection1 <em>or</em> selection2; <em>all</em> of selection1
+              </p>
             </div>
             <Button
               name="submit"

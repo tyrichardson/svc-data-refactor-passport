@@ -7,7 +7,7 @@ function* searchForm(action) {
     const config = { headers: { "Content-Type": "application/json" }, withCredentials: true };
   try {
     const form = yield call(axios.get, `/api/victim/${action.payload}`, config);
-    yield console.log('in search reducer ', form.data);
+    yield console.log('in search reducer');
     yield put({
       type: 'FORM_TO_UPDATE',
       payload: form.data

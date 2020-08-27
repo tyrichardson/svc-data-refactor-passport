@@ -16,7 +16,7 @@ const makeUrlFunction = (array, querySelector) => {
     });
     urlString = urlString.slice(0, -1);
   }
-console.log('urlString ', urlString);
+
   return urlString;
 };
 

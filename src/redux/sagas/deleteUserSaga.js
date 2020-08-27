@@ -9,7 +9,7 @@ function* deleteUserSagaCall(action) {
   }
   try {
     yield call(axios.delete, `api/user/${action.payload.id}`, config)
-    console.log("deleteUserSaga axios call:", action.payload.id);
+    console.log("deleteUserSaga axios call");
     yield put({
       type: 'GET_USERS_SAGA'
     })

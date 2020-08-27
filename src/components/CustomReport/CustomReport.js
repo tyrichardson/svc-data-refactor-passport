@@ -134,7 +134,7 @@ class customReportSelectionPage extends Component {
         inputValue: "",
         [topicName]: [...this.state[topicName], event],
       });
-      console.log("chip", event);
+      console.log("chip");
 
       this.props.dispatch({
         type: "UPDATE_SELECTED_ITEM",
@@ -149,7 +149,7 @@ class customReportSelectionPage extends Component {
       const selectedItem = [
         ...this.props.state.CustomReportInputReducer.selectedItem,
       ];
-      console.log("clicked delete", item);
+      console.log("clicked delete");
       selectedItem.splice(selectedItem.indexOf(selectedItem), 1);
 
       this.setState({

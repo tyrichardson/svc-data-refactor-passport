@@ -9,7 +9,7 @@ function* getUsersResponse(action) {
   }
   try {
     const getResponse = yield call(axios.get, '/api/user/users', config);
-    console.log('getUsersSaga axiosGET to user.router, getResponse:', getResponse);
+    console.log('getUsersSaga axiosGET to user.router, getResponse');
     yield put({
       type: 'GET_USERS_REDUCER',
       payload: getResponse.data
